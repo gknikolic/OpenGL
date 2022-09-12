@@ -1,0 +1,128 @@
+BaseShapes - svera
+
+reshape, prepare scenee, draw, loadTexture, 
+rubikova kocka, SetMaterial,  pod d)
+
+
+
+
+void CGLRenderer::PrepareScene(CDC* pDC) {
+    wglMakeCurrent(pDC->m_hDC, m_hrc);
+
+    glClearColor(1, 1, 1, 1);
+    glEnable(GL_DEPTH_TEST);
+
+    wglMakeCurrent(NULL, NULL);
+}
+
+void CGLRenderer::DrawScene(CDC* pDC) {
+    wglMakeCurrent(pDC->m_hDC, m_hrc);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glLoadIdentity();
+
+
+    glFlush();
+    SwapBuffers(pDC->m_hDC);
+    wglMakeCurrent(NULL, NULL);
+}
+
+void CGLRenderer::Reshape(CDC* pDC, int w, int h) {
+    wglMakeCurrent(pDC->m_hDC, m_hrc);
+    glViewport(0, 0, (GLsizei)w, (GLsizei)h);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective(40, (double)w / (double)h, 0.1, 2000);
+    glMatrixMode(GL_MODELVIEW);
+    wglMakeCurrent(NULL, NULL);
+}
+
+void CGLRenderer::DestroyScene(CDC* pDC) {
+    wglMakeCurrent(pDC->m_hDC, m_hrc);
+
+    glDeleteTextures(1, &aaa);
+
+    wglMakeCurrent(NULL, NULL);
+    if(m_hrc){
+	wglDeleteContext(m_hrc);
+	hrc=NULL;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+glDisable(GL_DEPTH_TEST);
+glDisable(GL_LIGHTING);
+
+glPushMatrix();
+glRot(m_alpha, 1,0,0);
+glRot(m_beta, 0, 1, 0);
+DrawSpace();
+glPopMatrix();
+
+
+if(light){
+glEnable(GL_LIGHTING);
+glEnable(GL_LIGHT_0);
+}
+
+float specular[] = {1,1,1,1};
+float diffuse[] = {1,1,1,1};
+float ambient[] = {0,0,0,1};
+
+glLightfv(...)
+glLightfv(...)
+glLightfv(...)
+
+float glLightPosition[0,0,1,0];
+
+glEnable(GL_DEPTH_TEST_;
+
+
+glLightv(gl_Light0, gl_position, lightPosition);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+//GLU_LOOK_AT i osvetljenje je objasnjeno u "Grafika\Pismeni\Reseni blanketi\OpenGL\OpenGL\Osvetljenje"
+//Pomeranje koordinatnog sistema ("namestanje") za kasnija isrtavanja koriscenjem translacije i rotacije pogledaj u "Grafika\Pismeni\Reseni blanketi\OpenGL\OpenGL\BaseShapes"
+
+
+AKO POSTAVLJAS NORMALE NA KOCKU NEMOJ DA KORISTIST LINESTREAP!!! Pogledaj 111 stranu u knjizi
+20:50 normale racunske!!! Za ostale stvari koje nisu kocka, moze LINESTREAP, pogledaj vdeo!
+
+knjiga:
+
+normale: poslednji pasus 111 i cela 112 strana (107 i 108 slajd), 115-116 strana (slajd 111, 112)
+svetlo: 126-127 stranu (122-123 slajd)
+
+
+razlog zbog kog nestaju boje kad se upali svetlo:
+https://stackoverflow.com/questions/8494942/why-does-my-color-go-away-when-i-enable-lighting-in-opengl
+
+
+
+Nacin da se iskljuci odredjena komponenta
+http://glprogramming.com/red/chapter05.html
+no_mat[] = { 0.0, 0.0, 0.0, 1.0 };
