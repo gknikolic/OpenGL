@@ -9,7 +9,7 @@ public:
 	float rotacijaY = -45;
 	float rotacijaX = 45;
 	float rotacijaZ = 0;
-	float zoom = -10;
+	float zoom = -20;
 	float pi = atan(1) * 4;
 	float toRad = pi / 180; //2 * pi / 360
 	float toDeg = 180 / pi; //360 / 2 * pi 

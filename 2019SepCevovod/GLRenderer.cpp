@@ -88,7 +88,7 @@ void CGLRenderer::DrawRoller(float r, float h, int nPartR, int nPartH) {
     float baseAngle = 360 / nPartR;
 
     glBegin(GL_TRIANGLE_FAN);
-    glNormal3f(0, 1, 0);
+    glNormal3f(0, -1, 0);
     glTexCoord2f(0.5, 0.5);
     glVertex3f(0, 0, 0);
     for (int i = 0; i <= nPartR; i++) {
@@ -114,7 +114,7 @@ void CGLRenderer::DrawRoller(float r, float h, int nPartR, int nPartH) {
     }
 
     glBegin(GL_TRIANGLE_FAN);
-    glNormal3f(0, -1, 0);
+    glNormal3f(0, 1, 0);
     glTexCoord2f(0.5, 0.5);
     glVertex3f(0, h, 0);
     for (int i = 0; i <= nPartR; i++) {
@@ -183,9 +183,9 @@ void CGLRenderer::DrawScene(CDC* pDC)
     //ne pomera se posmatrac, vec koordinatni sistem u kome se iscrtava! Posmatrac (kamera) je sve vreme u centru koordinatnog pocetka
     //ako se koristi gluLookAt, ponovo se ne pomera kamera vec ceo koordniatni sistem u odnosu na kameru, a efekat je kao da se kamera pomerila, pogledaj: https://www.youtube.com/watch?v=ODKfUez08zE&ab_channel=JamieKing
 
-    glTranslatef(-0.01, -0.1, -1); //pomeramo lokalni koordinatni sistem u kome se iscrtavaju objekti u negativnom smeru z ose, kako bi objekti bili isped kamere (posmatraca)
-    DrawAxes(1);
-    glTranslatef(0.01, 0.1, 1); //vracamo lokalni koordinatni sistem u mesto gde se nalazi kamera
+    //glTranslatef(-0.01, -0.1, -1); //pomeramo lokalni koordinatni sistem u kome se iscrtavaju objekti u negativnom smeru z ose, kako bi objekti bili isped kamere (posmatraca)
+    //DrawAxes(1);
+    //glTranslatef(0.01, 0.1, 1); //vracamo lokalni koordinatni sistem u mesto gde se nalazi kamera
 
     glTranslatef(0, 0, zoom);
     glRotatef(rotacijaX, 1, 0, 0);
@@ -228,16 +228,16 @@ void CGLRenderer::DestroyScene(CDC* pDC)
     }
 }
 
-void CGLRenderer::Reshape(CDC* pDC, int w, int h) {
-    wglMakeCurrent(pDC->m_hDC, m_hrc);
-
-    glViewport(0, 0, (GLsizei)w, (GLsizei)h);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluPerspective(40, (double)w / (double)h, 0.1, 2000);
-
-    wglMakeCurrent(NULL, NULL);
-}
+//void CGLRenderer::Reshape(CDC* pDC, int w, int h) {
+//    wglMakeCurrent(pDC->m_hDC, m_hrc);
+//
+//    glViewport(0, 0, (GLsizei)w, (GLsizei)h);
+//    glMatrixMode(GL_PROJECTION);
+//    glLoadIdentity();
+//    gluPerspective(40, (double)w / (double)h, 0.1, 2000);
+//
+//    wglMakeCurrent(NULL, NULL);
+//}
 
 void CGLRenderer::PrepareScene(CDC* pDC)
 {
