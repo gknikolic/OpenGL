@@ -97,7 +97,7 @@ void CGLRenderer::DrawCube(double a) {
     glVertex3f(d, d, -d); //6
 
     glColor3f(1, 0.5, 0);
-    glNormal3f(0, 1, 0);
+    glNormal3f(0, 0, -1);
     glVertex3f(d, d, -d); //6
     glVertex3f(d, -d, -d); //5
     glVertex3f(-d, -d, -d); //7
@@ -133,6 +133,7 @@ void CGLRenderer::DrawRubikCube(double a, double* angle) {
     float pomerajZ;
 
     glPushMatrix();
+    glTranslatef(pomeraj, 0, 0); // da bi srednja kompozicija po x bila u koord poc
     for (int x = 0; x < 3; x++) {
         glPushMatrix();
         glRotatef(angle[x], 1, 0, 0);
