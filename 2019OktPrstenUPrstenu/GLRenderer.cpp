@@ -131,6 +131,7 @@ void CGLRenderer::DrawRing(float h, float R1, float R2, int n, CString tex) {
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, tekstura1);
     
+    // donja stranica
     glBegin(GL_QUAD_STRIP);
     for (int i = 0; i <= n; i++) {
         glTexCoord2f(0.5 + diff * 0.5 * cos(angle * i * toRad), 0.5 + diff * 0.5 * sin(angle * i * toRad));
@@ -141,6 +142,7 @@ void CGLRenderer::DrawRing(float h, float R1, float R2, int n, CString tex) {
     }
     glEnd();
 
+    // gornja stranica
     glBegin(GL_QUAD_STRIP);
     for (int i = 0; i <= n; i++) {
         glTexCoord2f(0.5 + diff * 0.5 * cos(angle * i * toRad), 0.5 + diff * 0.5 * sin(angle * i * toRad));
@@ -153,6 +155,7 @@ void CGLRenderer::DrawRing(float h, float R1, float R2, int n, CString tex) {
 
     glBindTexture(GL_TEXTURE_2D, tekstura2);
 
+    // spoljanji omotac
     float razlika = 1 / (float)n;
     glBegin(GL_QUAD_STRIP);
     for (int i = 0; i <= n; i++) {
@@ -164,6 +167,7 @@ void CGLRenderer::DrawRing(float h, float R1, float R2, int n, CString tex) {
     }
     glEnd();
 
+    // unutrasnji omotac
     glBegin(GL_QUAD_STRIP);
     for (int i = 0; i <= n; i++) {
         glTexCoord2f(1 - i * razlika, 0);
